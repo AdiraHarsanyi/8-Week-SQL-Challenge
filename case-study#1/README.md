@@ -22,3 +22,22 @@ Result:
 | A           | 76        |
 | B           | 74        |
 | C           | 36        |
+
+Question 2: How many days has each customer visited the restaurant?
+
+```SQL
+SELECT 
+    COUNT(DISTINCT sales.order_date) AS num_days, sales.customer_id
+FROM dannys_diner.sales
+
+GROUP BY sales.customer_id
+ORDER BY num_days DESC;
+```
+
+
+Result:
+| num_days | customer_id |
+| -------- | ----------- |
+| 6        | B           |
+| 4        | A           |
+| 2        | C           |
